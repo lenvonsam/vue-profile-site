@@ -1,0 +1,50 @@
+@charset 'utf-8';
+
+body
+{
+    margin: 0 0 !important;
+    padding: 0 0 !important;
+}
+
+#app
+{
+    font-family: 'Microsoft YaHei';
+
+    color: #2c3e50;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.header .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+.header .navbar-toggle.collapsed:hover,.header .navbar-toggle.collapsed:active {
+  background-color: rgb(255, 189, 1);
+}
+
+.header .navbar-toggle.collapsed
+{
+    border-color: #fff;
+}
+
+.header .navbar-right li a {
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+img
+{
+    width: 100%;
+
+    object-position: center;
+    object-fit: cover;
+}
