@@ -8,6 +8,10 @@ export default new Router({
     {
       path: '/',
       component: require('@/pages/Home.vue')
+    },
+    {
+      path: '/projects',
+      component: require('@/pages/Project.vue')
     }
   ]
 })

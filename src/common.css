@@ -48,3 +48,15 @@ img
     object-position: center;
     object-fit: cover;
 }
+
+.panel-green {
+  border: 1px solid rgb(111, 232, 176) !important;
+}
+
+.panel-green .panel-heading {
+  background: rgba(111, 232, 176,0.6);
+}
+
+.panel-green .panel-body {
+  border-top: rgb(111, 232, 176) !important;
+}

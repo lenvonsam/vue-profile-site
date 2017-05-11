@@ -6,37 +6,24 @@
       hr
       .row
         .col-sm-4.col-sm-offset-2.col-md-4.col-md-offset-2
-          img.img-responsive(src="../assets/samy.png",style="border-radius: 4px; margin-bottom:20px;")
+          img.img-responsive.img-rounded(src="../assets/samy.png",style="margin-bottom:20px;height:300px;")
         .col-sm-4.col-md-4
-          accordion(:one-at-time="true")
-            panel(header="特点1")
-              div 介绍特点一
-            panel(header="特点2")
-              div 介绍特点二
-            panel(header="特点3")
-              div 介绍特点三
+          accordion(:one-at-time="true",type="green",style="margin-top:3%;")
+            panel(v-for="ft in features", :header="ft.title", :key="ft.title")
+              div(v-html="ft.content")
     div
-      h3.text-center 最近项目
+      h3.text-center
+        | 最近项目
+        span.pull-right.label.label-warning(style="margin-right:3%;font-size:14px;") 更多
+      .clearfix
       hr
       .row
-        .col-md-4
+        .col-md-4(v-for="p in mainProjects",style="padding-bottom:20px;")
           .project-img(style="overflow:hidden")
-            img.img-responsive(src="../assets/projectdemo.jpg")
+            img.img-responsive(:src="p.url",style="height:260px;")
           div
-            h4.text-center 测试项目
-            div 最近在测试
-        .col-md-4
-          .project-img(style="overflow:hidden")
-            img.img-responsive(src="../assets/projectdemo.jpg")
-          div
-            h4.text-center 测试项目
-            div 最近在测试
-        .col-md-4
-          .project-img(style="overflow:hidden")
-            img.img-responsive(src="../assets/projectdemo.jpg")
-          div
-            h4.text-center 测试项目
-            div 最近在测试
+            h4.text-center {{p.title}}
+            div(v-html="p.content")
     div
       h3.text-center 最近生活
       hr
@@ -61,12 +48,12 @@
                   div(style="padding:10px 10px") 测试生活
 
 
-
 </template>
 
 <script>
 import TextSlider from '../components/TextSlider.vue'
 import { accordion, panel } from 'vue-strap'
+import { mapState } from 'vuex'
 export default {
   data () {
     return {
@@ -78,6 +65,12 @@ export default {
     panel
   },
   mounted () {
+  },
+  computed: {
+    ...mapState({
+      features: state => state.features,
+      mainProjects: state => state.mainProjects
+    })
   },
   methods: {
   }
