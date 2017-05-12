@@ -7,6 +7,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
+import mixins from './mixins'
 
 Vue.config.productionTip = false
 
@@ -14,6 +15,7 @@ router.beforeEach((to, from, next) => {
   console.log(window.innerWidth)
   next()
 })
+Vue.mixin(mixins)
 
 /* eslint-disable no-new */
 new Vue({

@@ -11,8 +11,8 @@
           .row(style="margin-top:15px;")
             .col-md-4
               h4 订阅动态
-              p 山姆极客有最近动态会第一时间通知您
-              .form-inline
+              p 山姆极客有最新动态会第一时间通知您
+              .form-inline(style="margin-top:2%;")
                 .form-group
                   .input-group
                     input.form-control(style="border:0px;")
@@ -25,13 +25,10 @@
               h4 关注山姆
               p.follows(style="font-size:32px;")
                 i.fa(v-for="follow in mainFollows",@click="jumpToNewWindow(follow.url)",:class="follow.className")
-
-
-      .text-center(style="padding:10px 10px;")
-        p
-          | 版权所有:&nbsp;山姆极客&nbsp;
-          i.glyphicon.glyphicon-copyright-mark
-          | &nbsp;2017&nbsp;&nbsp;苏ICP备17013255号
+              p
+                | 版权所有:&nbsp;山姆极客&nbsp;
+                i.glyphicon.glyphicon-copyright-mark
+                | &nbsp;2017&nbsp;&nbsp;苏ICP备17013255号
 </template>
 
 <script>
