@@ -10,6 +10,11 @@ import store from './vuex/store'
 
 Vue.config.productionTip = false
 
+router.beforeEach((to, from, next) => {
+  console.log(window.innerWidth)
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
