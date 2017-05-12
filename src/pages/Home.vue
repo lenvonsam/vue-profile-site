@@ -13,7 +13,7 @@
               div(v-html="ft.content")
     div
       h3.text-center
-        | 最近项目
+        | 山姆项目
         span.pull-right.label.label-warning(style="margin-right:3%;font-size:14px;") 更多
       .clearfix
       hr
@@ -24,8 +24,8 @@
           div
             h4.text-center {{p.title}}
             div(v-html="p.content")
-    div
-      h3.text-center 最近生活
+    #samLife
+      h3.text-center 山姆生活
       hr
       .row
         .col-md-4
@@ -46,8 +46,6 @@
                 div(style="z-index:10;position:absolute;top:0px;left:0px;width:100%;bottom:0px")
                   div(style="padding:10px 10px") 热爱生活
                   div(style="padding:10px 10px") 测试生活
-
-
 </template>
 
 <script>
@@ -65,6 +63,9 @@ export default {
     panel
   },
   mounted () {
+    if (this.$route.query.type && this.$route.query.type === 'life') {
+      this.$scrollTo('#samLife')
+    }
   },
   computed: {
     ...mapState({
@@ -97,19 +98,4 @@ export default {
     color:#fff;
     transition: all .8s;
   }
-
-  .project-img {
-    overflow: hidden;
-  }
-
-  .project-img img:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-  }
-
-  .project-img img {
-    transition: all 1.5s;
-  }
-
-
 </style>

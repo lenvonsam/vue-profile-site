@@ -1,6 +1,6 @@
 <template lang="pug">
   .banner(style="position:relative;")
-    .content.clearfix(ref="box")
+    .content.clearfix(ref="box",v-touch:swipe="txtSliderSwipe")
       .text-item(v-for="(pearl,index) in mainPearls",:style="{left: itemLeft(index)}")
         .item-desc.text-center {{pearl.title}}
         .item-desc.text-right -- {{pearl.author}}
@@ -40,7 +40,21 @@
           if (me.currentIndex > (me.mainPearls.length - 1)) {
             me.currentIndex = 0
           }
-        }, 5000)
+        }, 8000)
+      },
+      txtSliderSwipe (type, e) {
+        const me = this
+        if (type === 'swiperight') {
+          me.currentIndex++
+          if (me.currentIndex > (me.mainPearls.length - 1)) {
+            me.currentIndex = 0
+          }
+        } else if (type === 'swipeleft') {
+          me.currentIndex--
+          if (me.currentIndex < 0) {
+            me.currentIndex = me.mainPearls.length - 1
+          }
+        }
       }
     },
     mounted () {

@@ -12,6 +12,10 @@ export default new Router({
     {
       path: '/projects',
       component: require('@/pages/Project.vue')
+    },
+    {
+      path: '/contact',
+      component: require('@/pages/Contact.vue')
     }
   ]
 })

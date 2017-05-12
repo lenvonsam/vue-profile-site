@@ -16,12 +16,15 @@ body
     -moz-osx-font-smoothing: grayscale;
 }
 
-.header .navbar-toggle .icon-bar {
-  background-color: #fff;
+.header .navbar-toggle .icon-bar
+{
+    background-color: #fff;
 }
 
-.header .navbar-toggle.collapsed:hover,.header .navbar-toggle.collapsed:active {
-  background-color: rgb(255, 189, 1);
+.header .navbar-toggle.collapsed:hover,
+.header .navbar-toggle.collapsed:active
+{
+    background-color: rgb(255, 189, 1);
 }
 
 .header .navbar-toggle.collapsed
@@ -29,15 +32,35 @@ body
     border-color: #fff;
 }
 
-.header .navbar-right li a {
-  color: #fff;
-  font-size: 16px;
-  letter-spacing: 2px;
+.header .navbar-right li a
+{
+    font-size: 16px;
+
+    letter-spacing: 2px;
+
+    color: #fff;
 }
 
-.row {
-  margin-left: 0px;
-  margin-right: 0px;
+.row
+{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.content
+{
+    padding-top: 50px;
+}
+
+a:hover
+{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.border-bottom-line
+{
+    border-bottom: 1px solid #ddd;
 }
 
 
@@ -49,14 +72,51 @@ img
     object-fit: cover;
 }
 
-.panel-green {
-  border: 1px solid rgb(111, 232, 176) !important;
+.panel-green
+{
+    border: 1px solid rgb(111, 232, 176) !important;
 }
 
-.panel-green .panel-heading {
-  background: rgba(111, 232, 176,0.6);
+.panel-green .panel-heading
+{
+    background: rgba(111, 232, 176,.6);
 }
 
-.panel-green .panel-body {
-  border-top: rgb(111, 232, 176) !important;
+.panel-green .panel-body
+{
+    border-top: rgb(111, 232, 176) !important;
+}
+
+.project-img
+{
+    overflow: hidden;
+}
+
+.project-img img:hover
+{
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.project-img img
+{
+    transition: all 1.5s;
+}
+
+ol.breadcrumb
+{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: transparent;
+}
+ol.breadcrumb li
+{
+    font-size: 16px;
+
+    color: #ccc;
+}
+
+ol.breadcrumb li.active
+{
+    color: #000;
 }

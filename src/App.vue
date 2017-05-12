@@ -1,9 +1,9 @@
 <template lang="pug">
-  div
+  #appFrame
     navbar.header(placement="top")
       a.navbar-brand(slot="brand", style="color:#fff;font-weight:bold;letter-spacing:4px;font-size:20px;") 山姆极客
-      li(slot="right",v-for="t in mainTitleArray")
-        a(:href="t.url") {{t.name}}
+      li(slot="right",v-for="(t,i) in mainTitleArray", @click="switchTopTab(t,i)")
+        a(:class="{active: i == topTabIndex}") {{t.name}}
     router-view
     .footer
       .row
@@ -29,6 +29,8 @@
                 | 版权所有:&nbsp;山姆极客&nbsp;
                 i.glyphicon.glyphicon-copyright-mark
                 | &nbsp;2017&nbsp;&nbsp;苏ICP备17013255号
+    transition(name="fade",enter-active-class="fadeInUp",leave-active-class="fadeOutDown")
+      .back-to-top(v-if="canShowBottomBtn", v-scroll-to="{ el: '#appFrame' }")
 </template>
 
 <script>
@@ -37,10 +39,30 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
+      canShowBottomBtn: false,
+      topTabIndex: 0
     }
   },
   components: {
     navbar
+  },
+  mounted () {
+    this.$nextTick(() => {
+      window.addEventListener('scroll', this.handleScroll)
+    })
+  },
+  watch: {
+    '$route': {
+      handler (newVal, oldVal) {
+        console.log('watch')
+        if (this.$route.query.type && this.$route.query.type === 'life') {
+          this.$scrollTo('#samLife')
+        } else {
+          this.$scrollTo('#appFrame')
+        }
+      },
+      deep: true
+    }
   },
   computed: {
     ...mapState({
@@ -52,6 +74,13 @@ export default {
   methods: {
     jumpToNewWindow (url) {
       window.open(url, '_blank')
+    },
+    handleScroll () {
+      this.canShowBottomBtn = window.scrollY > 60
+    },
+    switchTopTab (obj, index) {
+      this.topTabIndex = index
+      this.jump(obj.url)
     }
   }
 }
@@ -74,5 +103,24 @@ export default {
   .footer .follows i.fa:hover {
     cursor: pointer;
     color: rgba(111,232,1,0.6);
+  }
+  .back-to-top {
+    position: fixed;
+    z-index: 100;
+    bottom: 2%;
+    right: 2%;
+    width: 36px;
+    height:50px;
+    background: url('./assets/b_dot.jpg') no-repeat;
+    background-color: transparent;
+    border-radius: 4px;
+  }
+
+  .back-to-top:hover {
+    cursor: pointer;
+  }
+
+  #appFrame .header li a.active {
+    color: #030303;
   }
 </style>
