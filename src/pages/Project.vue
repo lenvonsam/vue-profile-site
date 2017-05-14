@@ -34,7 +34,7 @@
         h5
           | 值得信赖
           i.fa.fa-thumbs-up(style="font-size:14px;color:#858c9c;margin-left:5px;")
-      .row(style="margin-bottom:3%;")
+      .row(style="margin-bottom:3%;padding-bottom:3%;")
         .col-sm-4
           .text-center
             i.fa.fa-cubes
@@ -63,15 +63,22 @@
             br
             br
             span.left-mark &nbsp;&nbsp;与山姆合作无论在哪个平台能享受统一模块解决方案-Vue2.x（简单易用，维护方便）。
-    modal.project-gallery(title="项目案例截图展示", :value="showProjectModal")
+    modal.project-gallery(:value="showProjectModal",effect="zoom")
+      .modal-header(slot="modal-header")
+        h4.modal-title 项目截图展示
       .modal-body(slot="modal-body")
-        p xxx
+        carousel
+          slider(v-for="sl in modalImgs",:key="sl.id")
+            img.img-responsive(:src="sl.url",style="height:300px;")
+      .modal-footer(slot="modal-footer")
+        button.btn.btn-primary(@click="showProjectModal=false",style="border:0px;background:rgb(111,232, 176)") 关闭
+
 
 </template>
 
 <script>
   import { mapState } from 'vuex'
-  import { tooltip, modal } from 'vue-strap'
+  import { tooltip, modal, carousel, slider } from 'vue-strap'
   export default {
     data () {
       return {
@@ -87,12 +94,17 @@
           count: 0
         }],
         projectArray: [],
-        showProjectModal: false
+        showProjectModal: false,
+        modalImgs: []
       }
+    },
+    watch: {
     },
     components: {
       tooltip,
-      modal
+      modal,
+      carousel,
+      slider
     },
     mounted () {
       this.projectArray = this.pcProjects
@@ -121,7 +133,8 @@
         }
       },
       openProjectModal (obj) {
-        this.showProjectModal = true
+        this.modalImgs = obj
+        this.showProjectModal = !this.showProjectModal
       }
     }
   }
@@ -156,6 +169,10 @@
 
   span.left-mark {
     border-left:5px solid rgb(111,232, 176);
+  }
+
+  .list-group-item:hover {
+    cursor: pointer;
   }
 
   .list-group-item.active {

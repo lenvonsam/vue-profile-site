@@ -86,9 +86,28 @@ const state = {
     buttons: [{type: 'demo', url: 'http://eurus.cn/', content: '在线演示'}]
   }, {
     url: require('../assets/eurusoa/oa2.png'),
-    title: '小型OA系统',
-    intro: '一款小体量的OA后台系统，能满足中小企业日常的业务需求，界面简洁大气，操作方便简单，需要的请联系山姆',
-    buttons: [{type: 'modal', imgs: [{url: require('../assets/eurusoa/oa1.png')}, {url: require('../assets/eurusoa/oa2.png')}], content: '项目截图'}]
+    title: '小型CRM系统',
+    intro: '一款小体量的CRM后台系统，能满足中小企业日常的业务需求，界面简洁大气，操作方便简单，需要的请联系山姆',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        url: require('../assets/eurusoa/oa1.png'),
+        id: 1
+      }, {
+        url: require('../assets/eurusoa/oa2.png'),
+        id: 2
+      }, {
+        url: require('../assets/eurusoa/oa3.png'),
+        id: 3
+      }, {
+        url: require('../assets/eurusoa/oa4.png'),
+        id: 4
+      }, {
+        url: require('../assets/eurusoa/oa5.png'),
+        id: 5
+      }],
+      content: '项目截图'
+    }]
   }],
   mobileProjects: [],
   demoProjects: [{
