@@ -1,4 +1,5 @@
 const state = {
+  topTabIndex: 0,
   mainTitleArray: [{
     name: '首页',
     url: {path: '/'}
@@ -36,8 +37,9 @@ const state = {
     className: 'fa-github',
     url: 'https://github.com/lenvonsam'
   }, {
-    className: 'fa-wechat',
-    url: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb1a990032d59f1d4&redirect_uri=http%3A%2F%2Fwechat.unionb2b.com%2Fironmart%2Findex.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+    className: 'fa-weibo',
+    // url: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb1a990032d59f1d4&redirect_uri=http%3A%2F%2Fwechat.unionb2b.com%2Fironmart%2Findex.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+    url: 'http://weibo.com/1199963085/profile?topnav=1&wvr=6'
   }, {
     className: 'fa-edge',
     url: 'http://www.unionb2b.com/'
@@ -64,15 +66,15 @@ const state = {
   mainProjects: [{
     url: require('../assets/webpc.png'),
     title: '终端项目',
-    content: '有丰富的电商以及'
+    content: '各领域各类型的项目集合以及终端插件分享'
   }, {
     url: require('../assets/mobileweb.png'),
     title: '移动项目',
-    content: 'xxx'
+    content: '以电商类项目为主以及移动端插件分享'
   }, {
     url: require('../assets/projectdemo.jpg'),
-    title: '模板项目',
-    content: 'xxxx'
+    title: '资源项目',
+    content: '山姆个人资源收藏以及少许黑科技的项目分享'
   }],
   pcProjects: [{
     url: require('../assets/sampersnalfirst.png'),
@@ -108,8 +110,96 @@ const state = {
       }],
       content: '项目截图'
     }]
+  }, {
+    url: require('../assets/zhdpaycenter/dashboard.png'),
+    title: '订单支付系统',
+    intro: '基于elementUI搭建的订单支付系统,具有报表的图形统计，订单个性化筛选以及数据定制化导出等特点，需要的请联系山姆',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        id: 1,
+        url: require('../assets/zhdpaycenter/login.png')
+      }, {
+        id: 2,
+        url: require('../assets/zhdpaycenter/dashboard.png')
+      }, {
+        id: 3,
+        url: require('../assets/zhdpaycenter/order.png')
+      }, {
+        id: 4,
+        url: require('../assets/zhdpaycenter/billdetail.png')
+      }],
+      content: '项目截图'
+    }]
+  }, {
+    url: require('../assets/kotlinSelenium.png'),
+    title: 'KotlinSelenium集成测试',
+    intro: 'Gradle+Kotlin+Selenium集成测试',
+    buttons: [{
+      type: 'demo',
+      url: 'https://github.com/lenvonsam/Gradle-kotlin-selenium-webtest-demo',
+      content: '资源分享'
+    }]
   }],
-  mobileProjects: [],
+  mobileProjects: [{
+    url: require('../assets/ironharbour.png'),
+    title: '友邻港微商平台',
+    intro: '一款钢铁行业垂直电商app,客户直接通过手机就能了解钢贸市场的行情并根据需求自行购买，需要的请联系山姆。',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        url: require('../assets/ironharhour.jpg'),
+        id: 1
+      }],
+      content: '扫码关注'
+    }]
+  }, {
+    url: require('../assets/tickethubber.png'),
+    title: '票联天下微商平台',
+    intro: '一款国内舞台剧音乐剧垂直电商app,立志做国内的”Ticket Master“，需要的请联系山姆。',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        url: require('../assets/tbqr.png'),
+        id: 1
+      }],
+      content: '扫码关注'
+    }]
+  }, {
+    url: require('../assets/ljzy.png'),
+    title: '刘家竹园微商平台',
+    intro: '一款餐饮自营电商app,用户通过手机就能了解商家商品的最新动态并根据需求自行购买，需要的请联系山姆',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        url: require('../assets/ljzyqr.png'),
+        id: 1
+      }],
+      content: '扫码关注'
+    }]
+  }, {
+    url: require('../assets/vuelogo.png'),
+    title: 'vue2-touch插件',
+    intro: '基于Hammer.js对于vue2.x插件的封装，可以轻松驾驭移动端各种手势的响应',
+    buttons: [{
+      type: 'demo',
+      url: 'https://www.npmjs.com/package/vue2-touch',
+      content: '资源分享'
+    }]
+  }, {
+    url: require('../assets/quasarmain.png'),
+    title: 'picker-quasar-plugin',
+    intro: '对于quasar框架自行研发的仿ios选择器，给quasar开发者带来的福音,需要的请联系山姆',
+    buttons: [{
+      type: 'demo',
+      url: 'https://lenvonsam.github.io/Quasar-Wheel-Picker-Plugin/#/',
+      content: '在线演示'
+    }, {
+      type: 'office',
+      url: 'http://quasar-framework.org/',
+      content: 'quasar官网'
+    }]
+  }],
   demoProjects: [{
     url: require('../assets/shopmart.png'),
     buttons: [{type: 'demo', url: 'http://showcase.thinkingsam.cn/shopmartdemo', content: '在线演示'}],

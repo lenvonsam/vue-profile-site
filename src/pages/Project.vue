@@ -21,13 +21,13 @@
                 tooltip.link-icons.pull-right(placement="left", :content="b.content",trigger="hover",v-for="b in p.buttons",:key="b.url")
                   a(:href="b.url", v-if="b.type == 'demo'", target="_blank")
                     i.fa.fa-tv
-                  a(@click="openProjectModal(b.imgs)", v-else-if="b.type == 'modal'")
+                  a(:href="b.url", v-else-if="b.type == 'office'", target="_blank", style="margin-right:5px;")
+                    i.fa.fa-font-awesome
+                  a(@click="openProjectModal(b.imgs, b.content)", v-else-if="b.type == 'modal'")
                     i.fa.fa-th-large
                   span(v-else)
               .clearfix
               div(v-html="p.intro")
-          .col-sm-4
-          .col-sm-4
     .project-service
       .row.text-center(style="padding-top:20px;padding-bottom:20px;")
         h4 山姆服务
@@ -65,11 +65,17 @@
             span.left-mark &nbsp;&nbsp;与山姆合作无论在哪个平台能享受统一模块解决方案-Vue2.x（简单易用，维护方便）。
     modal.project-gallery(:value="showProjectModal",effect="zoom")
       .modal-header(slot="modal-header")
-        h4.modal-title 项目截图展示
+        h4.modal-title {{modalTitle}}
       .modal-body(slot="modal-body")
-        carousel
-          slider(v-for="sl in modalImgs",:key="sl.id")
-            img.img-responsive(:src="sl.url",style="height:300px;")
+        carousel-3d(v-if="modalImgs.length>1")
+          slide(v-for="(sld, i) in modalImgs", :key="sld.id", :index="i", style="border:1px solid rgb(111, 232, 176);border-radius:6px;")
+            img.img-responsive(:src="sld.url",style="height:300px;")
+        //- carousel(v-if="modalImgs.length>1")
+        //-   slider(v-for="sl in modalImgs",:key="sl.id")
+        //-     img.img-responsive(:src="sl.url",style="height:300px;")
+        div(v-else)
+          img.img-responsive(:src="sg.url",v-for="sg in modalImgs")
+        .clearfix
       .modal-footer(slot="modal-footer")
         button.btn.btn-primary(@click="showProjectModal=false",style="border:0px;background:rgb(111,232, 176)") 关闭
 
@@ -78,7 +84,8 @@
 
 <script>
   import { mapState } from 'vuex'
-  import { tooltip, modal, carousel, slider } from 'vue-strap'
+  // , carousel, slider
+  import { tooltip, modal } from 'vue-strap'
   export default {
     data () {
       return {
@@ -90,21 +97,22 @@
           title: '移动项目',
           count: 0
         }, {
-          title: '模板项目',
+          title: '资源项目',
           count: 0
         }],
         projectArray: [],
         showProjectModal: false,
-        modalImgs: []
+        modalImgs: [],
+        modalTitle: ''
       }
     },
     watch: {
     },
     components: {
       tooltip,
-      modal,
-      carousel,
-      slider
+      modal
+      // carousel,
+      // slider
     },
     mounted () {
       this.projectArray = this.pcProjects
@@ -121,6 +129,8 @@
     },
     methods: {
       switchProjects (index) {
+        this.modalImgs = []
+        this.modalTitle = ''
         this.projectListIndex = index
         if (index === 0) {
           this.projectArray = this.pcProjects
@@ -132,8 +142,9 @@
           this.projectArray = this.demoProjects
         }
       },
-      openProjectModal (obj) {
+      openProjectModal (obj, title) {
         this.modalImgs = obj
+        this.modalTitle = title
         this.showProjectModal = !this.showProjectModal
       }
     }

@@ -2,7 +2,7 @@
   #appFrame
     navbar.header(placement="top")
       a.navbar-brand(slot="brand", style="color:#fff;font-weight:bold;letter-spacing:4px;font-size:20px;") 山姆极客
-      li(slot="right",v-for="(t,i) in mainTitleArray", @click="switchTopTab(t,i)")
+      li(slot="right",v-for="(t,i) in mainTitleArray", @click="jump(t.url)")
         a(:class="{active: i == topTabIndex}") {{t.name}}
     router-view
     .footer
@@ -39,8 +39,7 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
-      canShowBottomBtn: false,
-      topTabIndex: 0
+      canShowBottomBtn: false
     }
   },
   components: {
@@ -68,7 +67,8 @@ export default {
     ...mapState({
       mainTitleArray: state => state.mainTitleArray,
       mainAddr: state => state.mainAddr,
-      mainFollows: state => state.mainFollows
+      mainFollows: state => state.mainFollows,
+      topTabIndex: state => state.topTabIndex
     })
   },
   methods: {
@@ -77,10 +77,6 @@ export default {
     },
     handleScroll () {
       this.canShowBottomBtn = window.scrollY > 60
-    },
-    switchTopTab (obj, index) {
-      this.topTabIndex = index
-      this.jump(obj.url)
     }
   }
 }

@@ -14,16 +14,16 @@
     div
       h3.text-center
         | 山姆项目
-        span.pull-right.label.label-warning(style="margin-right:3%;font-size:14px;") 更多
+        span.pull-right.label.label-warning.project-more(@click="jump({path: '/projects'})") 更多
       .clearfix
       hr
       .row
         .col-md-4(v-for="p in mainProjects",style="padding-bottom:20px;")
           .project-img(style="overflow:hidden")
             img.img-responsive(:src="p.url",style="height:260px;")
-          div
-            h4.text-center {{p.title}}
-            div(v-html="p.content")
+          .text-center
+            h4 {{p.title}}
+            p {{p.content}}
     #samLife
       h3.text-center 山姆生活
       hr
@@ -97,5 +97,13 @@ export default {
     height: 100%;
     color:#fff;
     transition: all .8s;
+  }
+
+  .project-more {
+    margin-right:3%;
+    font-size:14px;
+  }
+  .project-more:hover {
+    cursor: pointer;
   }
 </style>
