@@ -11,7 +11,7 @@
           .row(style="margin-top:15px;")
             .col-md-4
               h4 订阅动态
-              p 山姆极客有最新动态会第一时间通知您
+              p 山姆极客新动态及时通知您
               .form-inline(style="margin-top:2%;")
                 .form-group
                   .input-group
@@ -28,7 +28,8 @@
               p
                 | 版权所有:&nbsp;山姆极客&nbsp;
                 i.glyphicon.glyphicon-copyright-mark
-                | &nbsp;2017&nbsp;&nbsp;苏ICP备17013255号
+                | &nbsp;2017
+              p 苏ICP备17013255号
     transition(name="fade",enter-active-class="fadeInUp",leave-active-class="fadeOutDown")
       .back-to-top(v-if="canShowBottomBtn", v-scroll-to="{ el: '#appFrame' }")
 </template>

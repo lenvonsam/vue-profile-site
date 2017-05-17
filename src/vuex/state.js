@@ -134,12 +134,37 @@ const state = {
   }, {
     url: require('../assets/kotlinSelenium.png'),
     title: 'KotlinSelenium集成测试',
-    intro: 'Gradle+Kotlin+Selenium集成测试',
+    intro: 'Gradle+Kotlin+Selenium集成测试，需要的请联系山姆',
     buttons: [{
       type: 'demo',
       url: 'https://github.com/lenvonsam/Gradle-kotlin-selenium-webtest-demo',
       content: '资源分享'
     }]
+  }, {
+    url: require('../assets/tb/tb.png'),
+    title: '陪你旅行',
+    intro: '一款一站式旅行私人定制服务平台，能根据客户的需求提供私人定制攻略，内容涵盖机票、门票、酒店、餐饮等等，使得行程完全可控，省时省钱，需要的请联系山姆。',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        id: 1,
+        url: require('../assets/tb/tb.png')
+      }, {
+        id: 2,
+        url: require('../assets/tb/tb2.png')
+      }, {
+        id: 3,
+        url: require('../assets/tb/tb3.png')
+      }, {
+        id: 4,
+        url: require('../assets/tb/tb4.png')
+      }],
+      content: '项目截图'
+    }]
+  }, {
+    url: require('../assets/fy/fy.png'),
+    title: '汽车零部件进销存ERP',
+    intro: '一款为汽车零部件行业专业定制的库存进销存ERP系统，具有权限管理,产品的先进先出，订单管理，打印订单等等特点，完全'
   }],
   mobileProjects: [{
     url: require('../assets/ironharbour.png'),
@@ -198,6 +223,48 @@ const state = {
       type: 'office',
       url: 'http://quasar-framework.org/',
       content: 'quasar官网'
+    }]
+  }, {
+    url: require('../assets/ly/ly.png'),
+    title: '乐约-ios原生',
+    intro: '一款帮助寻找志趣相投的好友的应用，平台会不断发布好玩的线下活动，从水球大战到读书会无所不包，而参加各个活动，就构建了人与人的真实连接，致力于打造国内最优质的约会社区，需要的请联系山姆',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        id: 1,
+        url: require('../assets/ly/ly2.png')
+      }, {
+        id: 2,
+        url: require('../assets/ly/ly3.png')
+      }, {
+        id: 3,
+        url: require('../assets/ly/ly4.png')
+      }, {
+        id: 4,
+        url: require('../assets/ly/ly5.png')
+      }],
+      content: '项目截图'
+    }]
+  }, {
+    url: require('../assets/cxd/cxd.png'),
+    title: '常享动1.0-ios原生',
+    intro: '一款运动健康垂直领域平台，提供在线订场、活动发布、运动交流等服务，同时也带来新鲜的社交元素，传播积极向上的运动生活理念，让运动更有趣，需要的请联系山姆',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        id: 1,
+        url: require('../assets/cxd/cxd.png')
+      }, {
+        id: 2,
+        url: require('../assets/cxd/cxd2.png')
+      }, {
+        id: 3,
+        url: require('../assets/cxd/cxd3.png')
+      }, {
+        id: 4,
+        url: require('../assets/cxd/cxd4.png')
+      }],
+      content: '项目截图'
     }]
   }],
   demoProjects: [{
