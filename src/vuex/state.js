@@ -164,7 +164,57 @@ const state = {
   }, {
     url: require('../assets/fy/fy.png'),
     title: '汽车零部件进销存ERP',
-    intro: '一款为汽车零部件行业专业定制的库存进销存ERP系统，具有权限管理,产品的先进先出，订单管理，打印订单等等特点，完全'
+    intro: '一款为汽车零部件行业专业定制的库存进销存ERP系统，具有权限管理,产品的先进先出，订单管理，打印订单等等特点，大大提升了传统企业的运作效率，需要的请联系山姆',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        url: require('../assets/fy/fy.png'),
+        id: 1
+      }, {
+        url: require('../assets/fy/fy2.png'),
+        id: 2
+      }, {
+        url: require('../assets/fy/fy3.png'),
+        id: 3
+      }],
+      content: '项目截图'
+    }]
+  }, {
+    url: require('../assets/tns/tns.png'),
+    title: '天宁寺认捐系统',
+    intro: '一款量身定制的法物认捐管理系统，具有通过方位图快捷地找到法物的具体情况，对于过期法物自动提醒机制，数据可批量导出等特点，需要的请联系山姆',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        url: require('../assets/tns/tns.png'),
+        id: 1
+      }, {
+        url: require('../assets/tns/tns1.png'),
+        id: 2
+      }, {
+        url: require('../assets/tns/tns2.png'),
+        id: 3
+      }, {
+        url: require('../assets/tns/tns3.png'),
+        id: 4
+      }, {
+        url: require('../assets/tns/tns4.png'),
+        id: 5
+      }, {
+        url: require('../assets/tns/tns5.png'),
+        id: 6
+      }],
+      content: '项目截图'
+    }]
+  }, {
+    url: require('../assets/eintro.png'),
+    title: '在线个人简历',
+    intro: '一款BS端web类型的PPT,格式简单，上手方便，并且适配各类终端(pc,手机,平板),需要的请联系山姆',
+    buttons: [{
+      type: 'demo',
+      url: 'https://showcase.leanapp.cn/intro#/',
+      content: '在线演示'
+    }]
   }],
   mobileProjects: [{
     url: require('../assets/ironharbour.png'),
@@ -266,6 +316,34 @@ const state = {
       }],
       content: '项目截图'
     }]
+  }, {
+    url: require('../assets/tg/tg.png'),
+    title: '拼团微商平台',
+    intro: '一款电商团购微商平台,有利于电商客户快速推销和传播商品，用户也能拼团买个物美价廉的商品，从而达到互利共赢的良性循环，需要的请联系山姆',
+    buttons: [{
+      type: 'modal',
+      imgs: [{
+        url: require('../assets/tg/tg.png'),
+        id: 1
+      }, {
+        url: require('../assets/tg/tg1.png'),
+        id: 2
+      }, {
+        url: require('../assets/tg/tg2.png'),
+        id: 3
+      }, {
+        url: require('../assets/tg/tg3.png'),
+        id: 4
+      }, {
+        url: require('../assets/tg/tg4.png'),
+        id: 5
+      }],
+      content: '项目截图'
+    }]
+  }, {
+    url: require('../assets/wxminprogram.jpg'),
+    title: '号外！号外！微信小程序即将上线',
+    intro: '一款工具类的微信小程序即将上线，欢迎持续关系山姆极客。'
   }],
   demoProjects: [{
     url: require('../assets/shopmart.png'),
@@ -318,6 +396,37 @@ const state = {
     name: '乔布斯',
     intro: '前苹果董事',
     url: require('../assets/qbs.png')
+  }],
+  lifeArray: [{
+    id: 1,
+    url: require('../assets/life/life1.png'),
+    title: '潇洒纳木错',
+    intro: '&nbsp;&nbsp;&nbsp;&nbsp;2014年国庆期间和同事“姚明”一同前往国内海拔最高的旅游风景区--拉萨,为期15天的拉萨之旅让我记忆深刻。<br/>&nbsp;&nbsp;&nbsp;&nbsp;我们的基本路线:拉萨-林芝-纳木错；旅途中遇到了许多志同道合的驴友，我们相互扶持相互照应，一起和驴友们享受这与世隔绝的旷世美景。<br/>&nbsp;&nbsp;&nbsp;&nbsp;此图的地点是在纳木错描述了从南方来的孩子，看到成群的雪山，异常兴奋地走起了模特步^_^<br><br><br><p style="text-align:center">如果和相同经历或者感兴趣的童鞋都可以联系山姆</p>'
+  }, {
+    id: 2,
+    url: require('../assets/life/life2.png'),
+    title: '沙漠乐编程',
+    intro: '&nbsp;&nbsp;&nbsp;&nbsp;2014年11月底，公司公派到内蒙古的鄂尔多斯进行项目开发，工作之余，去体验了人生中的第一次沙漠之旅--响沙湾。<br>&nbsp;&nbsp;&nbsp;&nbsp;响沙湾是集观光与休闲度假为一体的综合型的沙漠休闲景区，地处中国著名的库布其沙漠的东端，是中国境内距离内地及北京非常近的沙漠旅游胜地，是国家AAAAA级旅游景区，国家文化产业示范基地<br>&nbsp;&nbsp;&nbsp;&nbsp;此图的地点是在仙沙休闲岛描述了刚滑完沙的骚年，看到一对情侣在沙地上写上对方的名字拍照留念，当时单身的山姆触景生情，也想留下点什么，灵光一闪，在沙地上写下了“HELLO WORLD”--沙地编程。<br><br><br><p style="text-align:center">如果和相同经历或者感兴趣的童鞋都可以联系山姆</p>'
+  }, {
+    id: 3,
+    url: require('../assets/life/life3.png'),
+    title: '江南酷滑雪',
+    intro: '&nbsp;&nbsp;&nbsp;&nbsp;2015年2月初，非常荣幸以家长的身份参加妹妹跆拳道冬季户外拓展--浙江安吉，两天一夜，滑雪、温泉。<br>&nbsp;&nbsp;&nbsp;&nbsp;江南天池滑雪场是现今华东唯一的野外露天滑雪场，填补了江南冰雪旅游的空白，创造了江南露天滑雪的奇迹。<br>&nbsp;&nbsp;&nbsp;&nbsp;此图地点在江南滑雪场起点处，描述了山姆人生第一体验雪橇滑雪，出发前的耍酷^_^<br><br><br><p style="text-align:center">如果和相同经历或者感兴趣的童鞋都可以联系山姆</p>'
+  }, {
+    id: 4,
+    url: require('../assets/life/life4.png'),
+    title: '祁连护公主',
+    intro: '&nbsp;&nbsp;&nbsp;&nbsp;2015年国庆期间和朋友“小珍”一同前往大西北，参加当地旅行团进行为期15天的大西北环行之旅。<br/>&nbsp;&nbsp;&nbsp;&nbsp;此次环行的路线:敦煌-塔尔寺-茶卡盐湖-鸣沙山-雅丹-丹霞-祁连-嘉峪关;旅行团的朋友们从陌生到熟悉，一路欢声笑语，一同体验着大西北的风土人情。<br>&nbsp;&nbsp;&nbsp;&nbsp;此图的地点是祁连山顶描述了山姆遇见了一个非常可爱的小女生，莫名的想保护她的冲动，就请求和小公主合影啦~~~<br><br><br><p style="text-align:center">如果和相同经历或者感兴趣的童鞋都可以联系山姆</p>'
+  }, {
+    id: 5,
+    url: require('../assets/life/life5.png'),
+    title: '情定巴厘岛',
+    intro: '&nbsp;&nbsp;&nbsp;&nbsp;2016年5月，与我喜爱的人的一起去巴厘岛渡蜜月，为期7天的蜜月之旅让我回味无穷。<br>&nbsp;&nbsp;&nbsp;&nbsp;巴厘岛是印尼136000多个岛屿中最耀眼的一个岛，如画的风景、纯朴的民风使其成为世界级的旅游度假区。此次旅行的路线: 库塔海滩-海神庙-情人崖-蓝梦岛-圣泉寺-乌布；来到第三世界的国家，第一大感受就是山姆成为了富人，吃住行都是五星级的标准，再配上天籁的美景，此生无憾。<br>&nbsp;&nbsp;&nbsp;&nbsp;此图的地点在蓝梦岛上描述了一对甜蜜的新人，在海浪中自由自在地戏水、打闹。<br><br><br><p style="text-align:center">如果和相同经历或者感兴趣的童鞋都可以联系山姆</p>'
+  }, {
+    id: 6,
+    url: require('../assets/life/life6.png'),
+    title: '欢乐马拉松',
+    intro: '&nbsp;&nbsp;&nbsp;&nbsp;2016年10月,山姆参加了常州西太湖举行的半程马拉松，并取得了189名的最佳成绩。<br>&nbsp;&nbsp;&nbsp;&nbsp;马拉松是一项老少皆宜的运动项目，高水平的竞技与群众的广泛参与，没有过多竞赛规则的限制，旨在增加全民体魄，延长全民寿命。<br>&nbsp;&nbsp;&nbsp;&nbsp;此图地点西太湖马拉松集合地描述了长跑达人山姆赛后获取奖牌喜悦的心情，同时也呼吁更多的人能加入马拉松的行列。<br><br><br><p style="text-align:center">如果和相同经历或者感兴趣的童鞋都可以联系山姆</p>'
   }]
 }
 

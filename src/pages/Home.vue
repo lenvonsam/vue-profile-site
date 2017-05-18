@@ -25,27 +25,21 @@
             h4 {{p.title}}
             p {{p.content}}
     #samLife
-      h3.text-center 山姆生活
+      h3.text-center
+        | 山姆生活
+        span.pull-right.label.label-warning.project-more 持续更新中...
+      .claerfix
       hr
       .row
-        .col-md-4
+        .col-md-4(v-for="life in lifeArray")
           .life-pic
-            img.img-responsive(src="../assets/lifedemo.jpg")
+            img.img-responsive(:src="life.url",style="height:350px;")
             .pic-desc
               div(style="position:relative;height:100%;")
                 div(style="background:rgba(0,0,0,0.4);position:absolute;top:0px;left:0px;width:100%;bottom:0px;z-index:1")
                 div(style="z-index:10;position:absolute;top:0px;left:0px;width:100%;bottom:0px")
-                  div(style="padding:10px 10px") 热爱生活
-                  div(style="padding:10px 10px") 测试生活
-        .col-md-4
-          .life-pic
-            img.img-responsive(src="../assets/lifedemo.jpg")
-            .pic-desc
-              div(style="position:relative;height:100%;")
-                div(style="background:rgba(0,0,0,0.6);position:absolute;top:0px;left:0px;width:100%;bottom:0px;z-index:1")
-                div(style="z-index:10;position:absolute;top:0px;left:0px;width:100%;bottom:0px")
-                  div(style="padding:10px 10px") 热爱生活
-                  div(style="padding:10px 10px") 测试生活
+                  div(style="padding:10px 10px;text-align:center;font-size:20px;width:100%;") {{life.title}}
+                  div(style="padding:10px 10px",v-html="life.intro")
 </template>
 
 <script>
@@ -70,7 +64,8 @@ export default {
   computed: {
     ...mapState({
       features: state => state.features,
-      mainProjects: state => state.mainProjects
+      mainProjects: state => state.mainProjects,
+      lifeArray: state => state.lifeArray
     })
   },
   methods: {
