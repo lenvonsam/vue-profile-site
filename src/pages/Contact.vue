@@ -4,23 +4,24 @@
       ol.breadcrumb.border-bottom-line
         li 首页
         li.active  联系山姆
+    spinner(ref="spinner")
     .row
       .col-sm-6
         .form-group
           label 称呼
-          input.form-control
+          input.form-control(v-model="newUser.name")
         .form-group
           label 邮箱
-          input.form-control
+          input.form-control(v-model="newUser.email")
         .form-group
           label 标题
-          input.form-control
+          input.form-control(v-model="newUser.subject")
       .col-sm-6
         .form-group
           label 内容
-          textarea.form-control(rows="6")
+          textarea.form-control(rows="6", v-model="newUser.body")
         .form-group.text-right
-          button.btn.btn-primary(style="background:rgb(111,232, 176);border:0px;")
+          button.btn.btn-primary(style="background:rgb(111,232, 176);border:0px;", @click="sendFeedback")
             | 立即发送
             i.fa.fa-send(style="margin-left:5px;")
 
@@ -36,12 +37,48 @@
             .col-sm-6(style="padding-top:15px;")
               h3 {{cb.name}}
               p {{cb.intro}}
+    alert.text-center(:type="alertType", placement="top", duration="3000", width="300px")
+      strong xxx
 
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
+  import { spinner, alert } from 'vue-strap'
   export default {
+    data () {
+      return {
+        newUser: {},
+        alertType: 'success',
+        alertShow: false
+      }
+    },
+    components: {
+      spinner,
+      alert
+    },
+    methods: {
+      ...mapActions([
+        'httpPost'
+      ]),
+      sendFeedback () {
+        var content = `<p>称呼: ${this.newUser.name}</p><p>邮箱: ${this.newUser.email}</p><p>标题: ${this.newUser.subject}</p><p>内容: ${this.newUser.body}</p>`
+        console.log(content)
+        // this.$refs.spinner.show()
+        this.alertShow = true
+        const me = this
+        this.httpPost({reqUrl: 'sendMail', params: {title: '联系山姆', content}}).then(resp => {
+          console.log(resp)
+          me.$refs.spinner.hide()
+          if (resp.returnCode === 0) {
+
+          }
+        }, err => {
+          console.log(err)
+          console.log(err)
+        })
+      }
+    },
     computed: {
       ...mapState({
         contactBanners: state => state.contactBanners
