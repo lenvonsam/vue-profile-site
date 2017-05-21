@@ -120,3 +120,15 @@ ol.breadcrumb li.active
 {
     color: #000;
 }
+
+.sam-spinner .spinner-circle {
+    border-right-color: rgb(111, 232, 176) !important;
+}
+.alert.top {
+    top: 25% !important;
+}
+.sam-alert.alert-success {
+    border-color: rgb(111,232,176) !important;
+    background-color:  rgba(111,232,176,.4) !important;
+
+}
