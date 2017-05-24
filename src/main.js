@@ -32,7 +32,7 @@ Vue.use(VueLazyload, {
 Vue.use(Carousel3d)
 Vue.mixin(mixins)
 router.beforeEach((to, from, next) => {
-  const basicUrl = '/samsite'
+  const basicUrl = ''
   let routes = [basicUrl + '/', basicUrl + '/projects', '', basicUrl + '/contact']
   let currentPath = to.path
   let routeIndex = routes.findIndex(item => item === currentPath)

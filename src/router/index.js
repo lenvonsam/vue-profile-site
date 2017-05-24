@@ -7,19 +7,25 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/samsite',
+      path: '/',
       component: require('@/pages/Home.vue')
     },
     {
-      path: '/samsite/projects',
+      path: '/projects',
       component: require('@/pages/Project.vue')
     },
     {
-      path: '/samsite/contact',
+      path: '/contact',
       component: require('@/pages/Contact.vue')
     },
     {
-      path: '/', redirect: '/samsite'
+      path: '/samsite', redirect: '/'
+    },
+    {
+      path: '/samsite/projects', redirect: '/projects'
+    },
+    {
+      path: '/samsite/contact', redirect: '/contact'
     }
   ]
 })

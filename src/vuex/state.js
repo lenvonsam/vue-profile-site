@@ -1,4 +1,4 @@
-const basicUrl = '/samsite'
+const basicUrl = ''
 const state = {
 
   topTabIndex: 0,
