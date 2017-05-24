@@ -14,7 +14,7 @@
         .row
           .col-sm-4(v-for="p in projectArray",style="padding-bottom: 15px;")
             .project-img(style="overflow:hidden")
-              img.img-responsive(:src="p.url",style="height:200px;")
+              img.img-responsive(v-lazy="p.url",style="height:200px;")
             div
               h4
                 | {{p.title}}
@@ -69,12 +69,12 @@
       .modal-body(slot="modal-body")
         carousel-3d(v-if="modalImgs.length>1")
           slide(v-for="(sld, i) in modalImgs", :key="sld.id", :index="i", style="border:1px solid rgb(111, 232, 176);border-radius:6px;")
-            img.img-responsive(:src="sld.url",style="height:300px;")
+            img.img-responsive(v-lazy="sld.url",style="height:300px;")
         //- carousel(v-if="modalImgs.length>1")
         //-   slider(v-for="sl in modalImgs",:key="sl.id")
         //-     img.img-responsive(:src="sl.url",style="height:300px;")
         div(v-else)
-          img.img-responsive(:src="sg.url",v-for="sg in modalImgs")
+          img.img-responsive(v-lazy="sg.url",v-for="sg in modalImgs")
         .clearfix
       .modal-footer(slot="modal-footer")
         button.btn.btn-primary(@click="showProjectModal=false",style="border:0px;background:rgb(111,232, 176)") 关闭

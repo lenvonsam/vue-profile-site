@@ -32,7 +32,7 @@
           .box-grid(v-html="cb.content",style="height:133px")
           .row(style="margin-top:20px;")
             .col-sm-6
-              img.img-responsive.img-circle(:src="cb.url",style="height:145px;")
+              img.img-responsive.img-circle(v-lazy="cb.url",style="height:145px;")
             .col-sm-6(style="padding-top:15px;")
               h3 {{cb.name}}
               p {{cb.intro}}

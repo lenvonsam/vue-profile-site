@@ -12,6 +12,7 @@ import mixins from './mixins'
 import VueTouch from 'vue2-touch'
 import VueScrollTo from 'vue-scrollto'
 import Carousel3d from 'vue-carousel-3d'
+import VueLazyload from 'vue-lazyload'
 
 Vue.config.productionTip = false
 Vue.use(VueTouch)
@@ -21,11 +22,18 @@ Vue.use(VueScrollTo, {
   eassing: 'ease',
   offset: 0
 })
+Vue.use(VueLazyload, {
+  preload: 1.3,
+  error: require('./assets/404.png'),
+  loading: require('./assets/load.png'),
+  attempt: 1
+})
 
 Vue.use(Carousel3d)
 Vue.mixin(mixins)
 router.beforeEach((to, from, next) => {
-  let routes = ['/', '/projects', '', '/contact']
+  const basicUrl = '/samsite'
+  let routes = [basicUrl + '/', basicUrl + '/projects', '', basicUrl + '/contact']
   let currentPath = to.path
   let routeIndex = routes.findIndex(item => item === currentPath)
   if (routeIndex < 0) {

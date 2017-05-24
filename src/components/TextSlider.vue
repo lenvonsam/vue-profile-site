@@ -45,14 +45,14 @@
       txtSliderSwipe (type, e) {
         const me = this
         if (type === 'swiperight') {
-          me.currentIndex++
-          if (me.currentIndex > (me.mainPearls.length - 1)) {
-            me.currentIndex = 0
-          }
-        } else if (type === 'swipeleft') {
           me.currentIndex--
           if (me.currentIndex < 0) {
             me.currentIndex = me.mainPearls.length - 1
+          }
+        } else if (type === 'swipeleft') {
+          me.currentIndex++
+          if (me.currentIndex > (me.mainPearls.length - 1)) {
+            me.currentIndex = 0
           }
         }
       }

@@ -6,7 +6,7 @@
       hr
       .row
         .col-sm-4.col-sm-offset-2.col-md-4.col-md-offset-2
-          img.img-responsive.img-rounded(src="../assets/samy.png",style="margin-bottom:20px;height:300px;")
+          img.img-responsive.img-rounded(v-lazy="sampic",style="margin-bottom:20px;height:300px;")
         .col-sm-4.col-md-4
           accordion(:one-at-time="true",type="green",style="margin-top:3%;")
             panel(v-for="ft in features", :header="ft.title", :key="ft.title")
@@ -20,7 +20,7 @@
       .row
         .col-md-4(v-for="p in mainProjects",style="padding-bottom:20px;")
           .project-img(style="overflow:hidden")
-            img.img-responsive(:src="p.url",style="height:260px;")
+            img.img-responsive(v-lazy="p.url",style="height:260px;")
           .text-center
             h4 {{p.title}}
             p {{p.content}}
@@ -33,7 +33,7 @@
       .row
         .col-md-4(v-for="life in lifeArray")
           .life-pic
-            img.img-responsive(:src="life.url",style="height:350px;")
+            img.img-responsive(v-lazy="life.url",style="height:350px;")
             .pic-desc
               div(style="position:relative;height:100%;")
                 div(style="background:rgba(0,0,0,0.4);position:absolute;top:0px;left:0px;width:100%;bottom:0px;z-index:1")
@@ -49,6 +49,7 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
+      sampic: require('../assets/samy.png')
     }
   },
   components: {

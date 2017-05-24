@@ -1,18 +1,20 @@
+const basicUrl = '/samsite'
 const state = {
+
   topTabIndex: 0,
   spinnerShow: false,
   mainTitleArray: [{
     name: '首页',
-    url: {path: '/'}
+    url: {path: basicUrl + '/'}
   }, {
     name: '项目',
-    url: {path: '/projects'}
+    url: {path: basicUrl + '/projects'}
   }, {
     name: '生活',
-    url: {path: '/', query: {type: 'life'}}
+    url: {path: basicUrl + '/', query: {type: 'life'}}
   }, {
     name: '联系',
-    url: {path: '/contact'}
+    url: {path: basicUrl + '/contact'}
   }],
   mainPearls: [{
     title: '将军前在南阳，建此大策，常以为落落难合，有志者事竟成也',

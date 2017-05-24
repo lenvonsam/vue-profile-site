@@ -72,6 +72,17 @@ img
     object-fit: cover;
 }
 
+img.img-responsive[lazy=loaded]
+{
+    -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
 .panel-green
 {
     border: 1px solid rgb(111, 232, 176) !important;
@@ -121,14 +132,16 @@ ol.breadcrumb li.active
     color: #000;
 }
 
-.sam-spinner .spinner-circle {
+.sam-spinner .spinner-circle
+{
     border-right-color: rgb(111, 232, 176) !important;
 }
-.alert.top {
+.alert.top
+{
     top: 25% !important;
 }
-.sam-alert.alert-success {
+.sam-alert.alert-success
+{
     border-color: rgb(111,232,176) !important;
-    background-color:  rgba(111,232,176,.4) !important;
-
+    background-color: rgba(111,232,176,.4) !important;
 }
