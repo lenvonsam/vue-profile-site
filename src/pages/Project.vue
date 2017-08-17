@@ -13,21 +13,26 @@
       .col-md-10
         .row
           .col-sm-4(v-for="p in projectArray",style="padding-bottom: 15px;")
-            .project-img(style="overflow:hidden")
-              img.img-responsive(v-lazy="p.url",style="height:200px;")
-            div
-              h4
-                | {{p.title}}
-                tooltip.link-icons.pull-right(placement="left", :content="b.content",trigger="hover",v-for="b in p.buttons",:key="b.url")
-                  a(:href="b.url", v-if="b.type == 'demo'", target="_blank")
-                    i.fa.fa-tv
-                  a(:href="b.url", v-else-if="b.type == 'office'", target="_blank", style="margin-right:5px;")
-                    i.fa.fa-font-awesome
-                  a(@click="openProjectModal(b.imgs, b.content)", v-else-if="b.type == 'modal'")
-                    i.fa.fa-th-large
-                  span(v-else)
-              .clearfix
-              div(v-html="p.intro")
+            div(style="box-shadow:1px 2px 5px rgb(111, 232, 176);border-radius:2px;")
+              .project-img(style="overflow:hidden;border-bottom:1px solid #ddd")
+                img.img-responsive(v-lazy="p.projectPicUrl",style="height:200px;")
+              div(style="padding:0px 0.5rem;padding-bottom:0.5rem;")
+                h4
+                  | {{p.title}}
+                  tooltip.link-icons.pull-right(placement="left", :content="b.content",trigger="hover",v-for="b in p.details",:key="b.url")
+                    a(:href="b.url", v-if="b.type == 'demo'", target="_blank")
+                      i.fa.fa-tv
+                    a(:href="b.url", v-else-if="b.type == 'office'", target="_blank", style="margin-right:5px;")
+                      i.fa.fa-font-awesome
+                    a(@click="openProjectModal(b.imgs, b.content)", v-else-if="b.type == 'modal'")
+                      i.fa.fa-th-large
+                    a(@click="openProjectModal(b.imgs, b.content)", v-else-if="b.type == 'android'")
+                      i.fa.fa-android
+                    span(v-else)
+                .clearfix
+                div(v-html="p.intro",style="max-height:80px;overflow:hidden")
+      .col-md-10.col-md-offset-2.text-center
+        button.btn(@click="loadMore",style="width:90%;margin-top:1rem",:class="{'btn-success': loadText == '显示更多'}") {{loadText}}
     .project-service
       .row.text-center(style="padding-top:20px;padding-bottom:20px;")
         h4 山姆服务
@@ -40,7 +45,7 @@
             i.fa.fa-cubes
             h4 经验丰富
           p
-            span.left-mark &nbsp;&nbsp;自2011以来经历过上百个项目开发,种类繁多。从小型的CRM、CMS到大型的ERP,从微信公众号到IOS,从爬虫到ATM,项目无一列外地开发上线。
+            span.left-mark &nbsp;&nbsp;自2011以来经历过上百个项目开发,种类繁多。从小型的CRM、CMS到大型的ERP,从微信公众号到IOS再到微信小程序,从爬虫到ATM,项目无一列外地开发上线。
             br
             br
             span.left-mark &nbsp;&nbsp;与山姆合作不仅可以少走弯路,而且能得到更专业的行业经验和建议。
@@ -69,12 +74,12 @@
       .modal-body(slot="modal-body")
         carousel-3d(v-if="modalImgs.length>1")
           slide(v-for="(sld, i) in modalImgs", :key="sld.id", :index="i", style="border:1px solid rgb(111, 232, 176);border-radius:6px;")
-            img.img-responsive(v-lazy="sld.url",style="height:300px;")
+            img.img-responsive(v-lazy="sld",style="height:300px;")
         //- carousel(v-if="modalImgs.length>1")
         //-   slider(v-for="sl in modalImgs",:key="sl.id")
         //-     img.img-responsive(:src="sl.url",style="height:300px;")
         div(v-else)
-          img.img-responsive(v-lazy="sg.url",v-for="sg in modalImgs")
+          img.img-responsive(v-lazy="sg",v-for="sg in modalImgs")
         .clearfix
       .modal-footer(slot="modal-footer")
         button.btn.btn-primary(@click="showProjectModal=false",style="border:0px;background:rgb(111,232, 176)") 关闭
@@ -83,12 +88,13 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   // , carousel, slider
   import { tooltip, modal } from 'vue-strap'
   export default {
     data () {
       return {
+        projectType: ['pc', 'mobile', 'template'],
         projectListIndex: 0,
         projectList: [{
           title: '终端项目',
@@ -103,7 +109,9 @@
         projectArray: [],
         showProjectModal: false,
         modalImgs: [],
-        modalTitle: ''
+        modalTitle: '',
+        pageIdx: 1,
+        loadText: '加载更多'
       }
     },
     watch: {
@@ -111,41 +119,79 @@
     components: {
       tooltip,
       modal
-      // carousel,
-      // slider
     },
-    mounted () {
-      this.projectArray = this.pcProjects
-      this.projectList[0].count = this.pcProjects.length
-      this.projectList[1].count = this.mobileProjects.length
-      this.projectList[2].count = this.demoProjects.length
+    beforeMount () {
+      if (this.$route.query.typeIdx) {
+        let type = this.$route.query.typeIdx
+        this.projectListIndex = Number(type)
+      }
+      this.loadData()
     },
     computed: {
       ...mapState({
-        pcProjects: state => state.pcProjects,
-        mobileProjects: state => state.mobileProjects,
-        demoProjects: state => state.demoProjects
-      })
+        pageSize: state => state.pageSize,
+        proxyUrl: state => state.proxyUrl
+      }),
+      currentPage () {
+        return 0 + (this.pageIdx - 1) * this.pageSize
+      }
     },
     methods: {
+      ...mapActions([
+        'httpRequest'
+      ]),
       switchProjects (index) {
+        this.jump({path: '/projects', query: {typeIdx: index}})
         this.modalImgs = []
         this.modalTitle = ''
         this.projectListIndex = index
-        if (index === 0) {
-          this.projectArray = this.pcProjects
-        }
-        if (index === 1) {
-          this.projectArray = this.mobileProjects
-        }
-        if (index === 2) {
-          this.projectArray = this.demoProjects
-        }
+        this.pageIdx = 1
+        this.loadText = '显示更多'
+        this.loadData()
       },
       openProjectModal (obj, title) {
-        this.modalImgs = obj
+        this.modalImgs = obj.split(',')
         this.modalTitle = title
         this.showProjectModal = !this.showProjectModal
+      },
+      loadMore () {
+        ++this.pageIdx
+        this.loadData()
+      },
+      loadData () {
+        const me = this
+        me.loadText = '读取中...'
+        this.httpRequest({reqUrl: `${this.proxyUrl}project?bucketId=1&type=${this.projectType[this.projectListIndex]}&currentPage=${this.currentPage}&pageSize=${this.pageSize}`, params: {}, type: 'get'}).then(resp => {
+          console.log(resp)
+          if (resp.returnCode === 0) {
+            if (resp.list.length > 0 && me.pageIdx === 1) {
+              me.projectArray = resp.list
+              for (let i in resp.count) {
+                let item = resp.count[i]
+                console.log(item)
+                if (item[0] === 'pc') {
+                  me.projectList[0].count = item[1]
+                } else if (item[0] === 'mobile') {
+                  me.projectList[1].count = item[1]
+                } else {
+                  me.projectList[2].count = item[1]
+                }
+              }
+              me.loadText = '显示更多'
+            } else if (resp.list.length > 0 && me.pageIdx > 1) {
+              for (let k in resp.list) {
+                me.projectArray.push(resp.list[k])
+              }
+              me.loadText = '显示更多'
+            } else if (resp.list.length === 0 && me.pageIdx > 1) {
+              me.loadText = '加载完成'
+              --me.pageIdx
+            } else {
+              me.projectArray = []
+              me.loadText = '暂无相关内容'
+            }
+          }
+        })
       }
     }
   }
@@ -198,6 +244,17 @@
 
   .link-icons a {
     color: rgb(111,232,176);
+  }
+
+  .btn-success {
+    background: rgba(111,232,176,.8) !important;
+    border: 1px solid rgba(111,232,176,.4);
+    color: #fff !important;
+  }
+
+  .btn {
+    background: #ddd;
+    color:#858c9c;
   }
 
 </style>

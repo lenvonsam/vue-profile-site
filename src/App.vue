@@ -110,7 +110,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      'httpPost'
+      'postSamsite'
     ]),
     jumpToNewWindow (url) {
       window.open(url, '_blank')
@@ -130,7 +130,7 @@ export default {
         this.alertText = '请输入正确的邮箱'
         this.alertType = 'danger'
       } else {
-        this.httpPost({reqUrl: 'sendMail', params: {title: '山姆订阅', content: `<p>订阅者: ${me.orderMail}</p>`}}).then(res => {
+        this.postSamsite({reqUrl: 'sendMail', params: {title: '山姆订阅', content: `<p>订阅者: ${me.orderMail}</p>`}}).then(res => {
           if (res.returnCode === 0) {
             me.alertShow = !me.alertShow
             me.alertText = '感谢您订阅山姆极客'

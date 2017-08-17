@@ -58,7 +58,7 @@
     },
     methods: {
       ...mapActions([
-        'httpPost',
+        'postSamsite',
         'validateNull'
       ]),
       sendFeedback () {
@@ -74,7 +74,7 @@
         let emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
         this.validateNull(requireParam).then(resp => {
           if (resp && emailReg.test(me.newUser.email)) {
-            me.httpPost({reqUrl: 'sendMail', params: {title: '联系山姆', content}}).then((rs) => {
+            me.postSamsite({reqUrl: 'sendMail', params: {title: '联系山姆', content}}).then((rs) => {
               if (rs.returnCode === 0) {
                 me.alertShow = !me.alertShow
                 me.alertText = '感谢您的建议，山姆稍后会联系您'

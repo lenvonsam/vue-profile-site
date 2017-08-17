@@ -1,6 +1,8 @@
 const basicUrl = ''
 const state = {
-
+  // proxyUrl: 'http://172.16.16.173:8668/api/'
+  proxyUrl: 'http://showcase.thinkingsam.cn/syun-backend/api/',
+  pageSize: 9,
   topTabIndex: 0,
   spinnerShow: false,
   mainTitleArray: [{
@@ -45,7 +47,7 @@ const state = {
     url: 'http://weibo.com/1199963085/profile?topnav=1&wvr=6'
   }, {
     className: 'fa-edge',
-    url: 'http://www.unionb2b.com/'
+    url: 'http://www.xingyun361.com/'
   }],
   features: [{
     title: '极度黑客',
@@ -67,322 +69,17 @@ const state = {
     content: '山姆对待工作，一向精益求精，最求完美，曾经有“项目杀手”的美誉，在山姆对待项目的理念--“没有最好，只有更好。”'
   }],
   mainProjects: [{
-    url: require('../assets/webpc.png'),
+    url: 'http://osuptraav.bkt.clouddn.com/webpc.jpg',
     title: '终端项目',
     content: '各领域各类型的项目集合以及终端插件分享'
   }, {
-    url: require('../assets/mobileweb.png'),
+    url: 'http://osuptraav.bkt.clouddn.com/mobileweb.jpg',
     title: '移动项目',
     content: '以电商类项目为主以及移动端插件分享'
   }, {
-    url: require('../assets/projectdemo.jpg'),
+    url: 'http://osuptraav.bkt.clouddn.com/projectdemo.jpg',
     title: '资源项目',
     content: '山姆个人资源收藏以及少许黑科技的项目分享'
-  }],
-  pcProjects: [{
-    url: require('../assets/sampersnalfirst.png'),
-    title: '山姆主页1.0',
-    intro: '基于node开发的个人主页，巧妙的将css和js相结合，适配于各大平台，需要的请联系山姆',
-    buttons: [{type: 'demo', url: 'http://samhp.leanapp.cn', content: '在线演示'}]
-  }, {
-    url: require('../assets/eurusdemo.png'),
-    title: 'Eurus官网',
-    intro: '为风豪科技量身定制的门户网站，简约的风格，大气的布局，让风豪员工赞不绝口，适配于各大平台，需要的请联系山姆',
-    buttons: [{type: 'demo', url: 'http://eurus.cn/', content: '在线演示'}]
-  }, {
-    url: require('../assets/eurusoa/oa2.png'),
-    title: '小型CRM系统',
-    intro: '一款小体量的CRM后台系统，能满足中小企业日常的业务需求，界面简洁大气，操作方便简单，需要的请联系山姆',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        url: require('../assets/eurusoa/oa1.png'),
-        id: 1
-      }, {
-        url: require('../assets/eurusoa/oa2.png'),
-        id: 2
-      }, {
-        url: require('../assets/eurusoa/oa3.png'),
-        id: 3
-      }, {
-        url: require('../assets/eurusoa/oa4.png'),
-        id: 4
-      }, {
-        url: require('../assets/eurusoa/oa5.png'),
-        id: 5
-      }],
-      content: '项目截图'
-    }]
-  }, {
-    url: require('../assets/zhdpaycenter/dashboard.png'),
-    title: '订单支付系统',
-    intro: '基于elementUI搭建的订单支付系统,具有报表的图形统计，订单个性化筛选以及数据定制化导出等特点，需要的请联系山姆',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        id: 1,
-        url: require('../assets/zhdpaycenter/login.png')
-      }, {
-        id: 2,
-        url: require('../assets/zhdpaycenter/dashboard.png')
-      }, {
-        id: 3,
-        url: require('../assets/zhdpaycenter/order.png')
-      }, {
-        id: 4,
-        url: require('../assets/zhdpaycenter/billdetail.png')
-      }],
-      content: '项目截图'
-    }]
-  }, {
-    url: require('../assets/kotlinSelenium.png'),
-    title: 'KotlinSelenium集成测试',
-    intro: 'Gradle+Kotlin+Selenium集成测试，需要的请联系山姆',
-    buttons: [{
-      type: 'demo',
-      url: 'https://github.com/lenvonsam/Gradle-kotlin-selenium-webtest-demo',
-      content: '资源分享'
-    }]
-  }, {
-    url: require('../assets/tb/tb.png'),
-    title: '陪你旅行',
-    intro: '一款一站式旅行私人定制服务平台，能根据客户的需求提供私人定制攻略，内容涵盖机票、门票、酒店、餐饮等等，使得行程完全可控，省时省钱，需要的请联系山姆。',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        id: 1,
-        url: require('../assets/tb/tb.png')
-      }, {
-        id: 2,
-        url: require('../assets/tb/tb2.png')
-      }, {
-        id: 3,
-        url: require('../assets/tb/tb3.png')
-      }, {
-        id: 4,
-        url: require('../assets/tb/tb4.png')
-      }],
-      content: '项目截图'
-    }]
-  }, {
-    url: require('../assets/fy/fy.png'),
-    title: '汽车零部件进销存ERP',
-    intro: '一款为汽车零部件行业专业定制的库存进销存ERP系统，具有权限管理,产品的先进先出，订单管理，打印订单等等特点，大大提升了传统企业的运作效率，需要的请联系山姆',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        url: require('../assets/fy/fy.png'),
-        id: 1
-      }, {
-        url: require('../assets/fy/fy2.png'),
-        id: 2
-      }, {
-        url: require('../assets/fy/fy3.png'),
-        id: 3
-      }],
-      content: '项目截图'
-    }]
-  }, {
-    url: require('../assets/tns/tns.png'),
-    title: '天宁寺认捐系统',
-    intro: '一款量身定制的法物认捐管理系统，具有通过方位图快捷地找到法物的具体情况，对于过期法物自动提醒机制，数据可批量导出等特点，需要的请联系山姆',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        url: require('../assets/tns/tns.png'),
-        id: 1
-      }, {
-        url: require('../assets/tns/tns1.png'),
-        id: 2
-      }, {
-        url: require('../assets/tns/tns2.png'),
-        id: 3
-      }, {
-        url: require('../assets/tns/tns3.png'),
-        id: 4
-      }, {
-        url: require('../assets/tns/tns4.png'),
-        id: 5
-      }, {
-        url: require('../assets/tns/tns5.png'),
-        id: 6
-      }],
-      content: '项目截图'
-    }]
-  }, {
-    url: require('../assets/eintro.png'),
-    title: '在线个人简历',
-    intro: '一款BS端web类型的PPT,格式简单，上手方便，并且适配各类终端(pc,手机,平板),需要的请联系山姆',
-    buttons: [{
-      type: 'demo',
-      url: 'https://showcase.leanapp.cn/intro#/',
-      content: '在线演示'
-    }]
-  }],
-  mobileProjects: [{
-    url: require('../assets/ironharbour.png'),
-    title: '友邻港微商平台',
-    intro: '一款钢铁行业垂直电商app,客户直接通过手机就能了解钢贸市场的行情并根据需求自行购买，需要的请联系山姆。',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        url: require('../assets/ironharhour.jpg'),
-        id: 1
-      }],
-      content: '扫码关注'
-    }]
-  }, {
-    url: require('../assets/tickethubber.png'),
-    title: '票联天下微商平台',
-    intro: '一款国内舞台剧音乐剧垂直电商app,立志做国内的”Ticket Master“，需要的请联系山姆。',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        url: require('../assets/tbqr.png'),
-        id: 1
-      }],
-      content: '扫码关注'
-    }]
-  }, {
-    url: require('../assets/ljzy.png'),
-    title: '刘家竹园微商平台',
-    intro: '一款餐饮自营电商app,用户通过手机就能了解商家商品的最新动态并根据需求自行购买，需要的请联系山姆',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        url: require('../assets/ljzyqr.png'),
-        id: 1
-      }],
-      content: '扫码关注'
-    }]
-  }, {
-    url: require('../assets/vuelogo.png'),
-    title: 'vue2-touch插件',
-    intro: '基于Hammer.js对于vue2.x插件的封装，可以轻松驾驭移动端各种手势的响应',
-    buttons: [{
-      type: 'demo',
-      url: 'https://www.npmjs.com/package/vue2-touch',
-      content: '资源分享'
-    }]
-  }, {
-    url: require('../assets/quasarmain.png'),
-    title: 'picker-quasar-plugin',
-    intro: '对于quasar框架自行研发的仿ios选择器，给quasar开发者带来的福音,需要的请联系山姆',
-    buttons: [{
-      type: 'demo',
-      url: 'https://lenvonsam.github.io/Quasar-Wheel-Picker-Plugin/#/',
-      content: '在线演示'
-    }, {
-      type: 'office',
-      url: 'http://quasar-framework.org/',
-      content: 'quasar官网'
-    }]
-  }, {
-    url: require('../assets/ly/ly.png'),
-    title: '乐约-ios原生',
-    intro: '一款帮助寻找志趣相投的好友的应用，平台会不断发布好玩的线下活动，从水球大战到读书会无所不包，而参加各个活动，就构建了人与人的真实连接，致力于打造国内最优质的约会社区，需要的请联系山姆',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        id: 1,
-        url: require('../assets/ly/ly2.png')
-      }, {
-        id: 2,
-        url: require('../assets/ly/ly3.png')
-      }, {
-        id: 3,
-        url: require('../assets/ly/ly4.png')
-      }, {
-        id: 4,
-        url: require('../assets/ly/ly5.png')
-      }],
-      content: '项目截图'
-    }]
-  }, {
-    url: require('../assets/cxd/cxd.png'),
-    title: '常享动1.0-ios原生',
-    intro: '一款运动健康垂直领域平台，提供在线订场、活动发布、运动交流等服务，同时也带来新鲜的社交元素，传播积极向上的运动生活理念，让运动更有趣，需要的请联系山姆',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        id: 1,
-        url: require('../assets/cxd/cxd.png')
-      }, {
-        id: 2,
-        url: require('../assets/cxd/cxd2.png')
-      }, {
-        id: 3,
-        url: require('../assets/cxd/cxd3.png')
-      }, {
-        id: 4,
-        url: require('../assets/cxd/cxd4.png')
-      }],
-      content: '项目截图'
-    }]
-  }, {
-    url: require('../assets/tg/tg.png'),
-    title: '拼团微商平台',
-    intro: '一款电商团购微商平台,有利于电商客户快速推销和传播商品，用户也能拼团买个物美价廉的商品，从而达到互利共赢的良性循环，需要的请联系山姆',
-    buttons: [{
-      type: 'modal',
-      imgs: [{
-        url: require('../assets/tg/tg.png'),
-        id: 1
-      }, {
-        url: require('../assets/tg/tg1.png'),
-        id: 2
-      }, {
-        url: require('../assets/tg/tg2.png'),
-        id: 3
-      }, {
-        url: require('../assets/tg/tg3.png'),
-        id: 4
-      }, {
-        url: require('../assets/tg/tg4.png'),
-        id: 5
-      }],
-      content: '项目截图'
-    }]
-  }, {
-    url: require('../assets/wxminprogram.jpg'),
-    title: '号外！号外！微信小程序即将上线',
-    intro: '一款工具类的微信小程序即将上线，欢迎持续关系山姆极客。'
-  }],
-  demoProjects: [{
-    url: require('../assets/shopmart.png'),
-    buttons: [{type: 'demo', url: 'http://showcase.thinkingsam.cn/shopmartdemo', content: '在线演示'}],
-    title: '超市商品',
-    intro: '一款超市商品类电商模板，自动适配各大平台，有助于电商客户迅速拥有自己的商户平台，需要的请联系山姆。'
-  }, {
-    url: require('../assets/techteam.png'),
-    buttons: [{type: 'demo', url: 'http://showcase.thinkingsam.cn/techcomdemo', content: '在线演示'}],
-    title: '科技网络',
-    intro: '一款科技网络公司门户模板，自动适配各大平台，有助于科技公司简单快捷的展示自己，需要的请联系山姆。'
-  }, {
-    url: require('../assets/feturespic.png'),
-    buttons: [{type: 'demo', url: 'http://showcase.thinkingsam.cn/furnituredemo', content: '在线演示'}],
-    title: '创意家居',
-    intro: '一款创业类家居模板，自动适配各大平台，有助于各类家具商更好地展示高格调的商品，需要的请联系山姆。'
-  }, {
-    url: require('../assets/womenmart.png'),
-    buttons: [{type: 'demo', url: 'http://showcase.thinkingsam.cn/womensuitdemo', content: '在线演示'}],
-    title: '女性时尚',
-    intro: '一款时尚女性商城模板，自动适配各大平台，有助于女性垂直电商更好地突显女性魅力，需要的请联系山姆。'
-  }, {
-    url: require('../assets/investmentdemo.png'),
-    buttons: [{type: 'demo', url: 'http://showcase.thinkingsam.cn/investmentdemo', content: '在线演示'}],
-    title: '投资金融',
-    intro: '一款投资金融模板，自动适配各大平台，有助于投资金融商更有条理更明确突出投资与金融，需要的请联系山姆。'
-  }, {
-    url: require('../assets/personaldemo.png'),
-    buttons: [{type: 'demo', url: 'http://showcase.thinkingsam.cn/personaldemo', content: '在线演示'}],
-    title: '个人主页',
-    intro: '一款欧美风个人主页摸板，自动适配各大平台，有助于更明确的向全世界展现自我，需要的请联系山姆。'
-  }, {
-    url: require('../assets/weddingdemo.png'),
-    buttons: [{type: 'demo', url: 'http://showcase.thinkingsam.cn/weddingdemo', content: '在线演示'}],
-    title: '婚纱礼服',
-    intro: '一款婚纱礼服摸板，自动适配各大平台，有助于天下有情人更浪漫的喜结良缘，需要的请联系山姆。'
   }],
   contactBanners: [{
     content: '客户的要求不等于客户的需求。<br>造势产品输入的是用户的需求，输出的是用户的满意。',

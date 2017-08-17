@@ -12,10 +12,11 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "babel-polyfill": "^6.23.0",
     "font-awesome": "^4.7.0",
     "vue": "^2.2.6",
     "vue-carousel-3d": "^0.1.8",
-    "vue-lazyload": "^1.0.3",
+    "vue-lazyload": "^1.0.6",
     "vue-router": "^2.3.1",
     "vue-scrollto": "^2.6.8",
     "vue-strap": "github:wffranco/vue-strap",

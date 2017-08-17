@@ -6,7 +6,7 @@
       hr
       .row
         .col-sm-4.col-sm-offset-2.col-md-4.col-md-offset-2
-          img.img-responsive.img-rounded(v-lazy="sampic",style="margin-bottom:20px;height:300px;")
+          img.img-responsive.img-rounded(v-lazy="sampic",style="margin-bottom:20px;height:330px;")
         .col-sm-4.col-md-4
           accordion(:one-at-time="true",type="green",style="margin-top:3%;")
             panel(v-for="ft in features", :header="ft.title", :key="ft.title")
@@ -18,7 +18,7 @@
       .clearfix
       hr
       .row
-        .col-md-4(v-for="p in mainProjects",style="padding-bottom:20px;")
+        .col-md-4(v-for="(p,idx) in mainProjects",style="padding-bottom:20px;",@click="jump({path: '/projects', query: {typeIdx: idx}})")
           .project-img(style="overflow:hidden")
             img.img-responsive(v-lazy="p.url",style="height:260px;")
           .text-center
@@ -49,7 +49,7 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
-      sampic: require('../assets/samy.png')
+      sampic: 'http://osuptraav.bkt.clouddn.com/samy.jpg'
     }
   },
   components: {
