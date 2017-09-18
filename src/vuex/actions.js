@@ -14,9 +14,10 @@ function serializeformQuery (requestParams) {
   return query
 }
 
-let BASICURL = 'http://wechat.xingyun361.com/quasarserver'
+// let BASICURL = 'http://wechat.xingyun361.com/quasarserver'
 // let BASICURL = 'http://192.168.20.149:8080/quasarserver'
-let PROXYURL = BASICURL + '/common/proxy'
+let BASICURL = 'https://reqproxy.leanapp.cn'
+let PROXYURL = BASICURL + '/proxy/common'
 
 const actions = {
   httpRequest ({commit}, {reqUrl, params, type}) {

@@ -1,7 +1,7 @@
 const basicUrl = ''
 const state = {
   // proxyUrl: 'http://172.16.16.173:8668/api/'
-  proxyUrl: 'http://showcase.thinkingsam.cn/syun-backend/api/',
+  proxyUrl: 'https://showcase.thinkingsam.cn/syun-backend/api/',
   pageSize: 9,
   topTabIndex: 0,
   spinnerShow: false,

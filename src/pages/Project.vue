@@ -20,13 +20,13 @@
                 h4
                   | {{p.title}}
                   tooltip.link-icons.pull-right(placement="left", :content="b.content",trigger="hover",v-for="b in p.details",:key="b.url")
-                    a(:href="b.url", v-if="b.type == 'demo'", target="_blank")
+                    a(:href="b.url", v-if="b.type == 'demo'", target="_blank", style="margin-right:5px;")
                       i.fa.fa-tv
                     a(:href="b.url", v-else-if="b.type == 'office'", target="_blank", style="margin-right:5px;")
                       i.fa.fa-font-awesome
-                    a(@click="openProjectModal(b.imgs, b.content)", v-else-if="b.type == 'modal'")
+                    a(@click="openProjectModal(b.imgs, b.content)", v-else-if="b.type == 'modal'", style="margin-right:5px;")
                       i.fa.fa-th-large
-                    a(@click="openProjectModal(b.imgs, b.content)", v-else-if="b.type == 'android'")
+                    a(@click="openProjectModal(b.imgs, b.content)", v-else-if="b.type == 'android'", style="margin-right:5px;")
                       i.fa.fa-android
                     span(v-else)
                 .clearfix
