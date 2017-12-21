@@ -1,13 +1,12 @@
 <template lang="pug">
   #appFrame
     spinner.sam-spinner(ref="spinner",:fixed="true")
-    modal(v-model="alertShow",effect="zoom", :backdrop="false", :samll="true")
+    modal(v-model="alertShow",effect="zoom", :backdrop="false", :small="true")
       .modal-header(slot="modal-header")
         h4.text-center {{alertText}}
       .modal-body.hide(slot="modal-body")
       .modal-footer.hide(slot="modal-footer")
     navbar.header(placement="top")
-
       a.navbar-brand(slot="brand", style="color:#fff;font-weight:bold;letter-spacing:4px;font-size:20px;")
         img.img-responsive.img-circle(src="./assets/samlogo.png",style="height:30px;width:30px;display:inline-block;margin-right:5px;margin-top:-5px;margin-left:-5px;")
         | 山姆极客
